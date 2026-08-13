@@ -133,5 +133,3 @@
 @utility animate-fade-up {
   animation: fade-up 0.9s ease-out both;
 }
-
-}
