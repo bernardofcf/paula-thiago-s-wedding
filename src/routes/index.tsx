@@ -3,9 +3,10 @@ import { useState } from "react";
 
 import monogramaBranco from "@/assets/monograma-branco.png.asset.json";
 import monogramaPreto from "@/assets/monograma-preto.png.asset.json";
+import patternPreto from "@/assets/pattern-preto.png.asset.json";
+import patternChampanhe from "@/assets/pattern-champanhe.png.asset.json";
 import casal1 from "@/assets/casal-1.jpg";
 import casal2 from "@/assets/casal-2.jpg";
-import casal3 from "@/assets/casal-3.jpg";
 import { presentes, type Presente } from "@/data/presentes";
 import { formatarBRL } from "@/lib/pix";
 import { PresenteDialog } from "@/components/PresenteDialog";
@@ -36,84 +37,100 @@ function Home() {
   return (
     <main className="bg-background">
       {/* Capa */}
-      <section className="relative flex min-h-screen flex-col items-center justify-center bg-foreground px-6 py-24 text-center">
-        <img
-          src={monogramaBranco.url}
-          alt="Monograma Paula e Thiago"
-          width={200}
-          height={160}
-          className="w-32 opacity-95 md:w-44"
+      <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-foreground px-6 py-20 text-center">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-[0.14] invert"
+          style={{
+            backgroundImage: `url(${patternPreto.url})`,
+            backgroundSize: "300px auto",
+            backgroundRepeat: "repeat",
+          }}
         />
-        <p className="mt-10 text-[0.65rem] tracking-wide-caps text-background/60">
-          Vamos nos casar
-        </p>
-        <h1 className="mt-6 font-script text-6xl leading-[1.1] text-background md:text-8xl">
-          Paula <span className="font-display italic">e</span> Thiago
-        </h1>
-        <p className="mt-10 text-[0.7rem] tracking-wide-caps text-background/70">
-          24 · Outubro · 2026 &nbsp;—&nbsp; Belém, Pará
-        </p>
+        <div className="relative">
+          <img
+            src={monogramaBranco.url}
+            alt="Monograma Paula e Thiago"
+            width={200}
+            height={160}
+            fetchPriority="high"
+            className="mx-auto w-24 opacity-95 md:w-40"
+          />
+          <p className="mt-8 text-[0.6rem] tracking-wide-caps text-background/60">
+            Vamos nos casar
+          </p>
+          <h1 className="mt-5 font-script text-5xl leading-[1.1] text-background sm:text-6xl md:text-8xl">
+            Paula <span className="font-display italic">e</span> Thiago
+          </h1>
+          <p className="mt-8 text-[0.6rem] leading-relaxed tracking-wide-caps text-background/70 sm:text-[0.7rem]">
+            24 · Outubro · 2026
+            <span className="mt-2 block">Belém, Pará</span>
+          </p>
+        </div>
       </section>
 
       {/* Convite */}
-      <section className="mx-auto max-w-2xl px-6 py-28 text-center">
-        <p className="text-[0.65rem] tracking-wide-caps text-muted-foreground">
-          O nosso convite
-        </p>
-        <div className="rule-line" />
-        <p className="font-display text-2xl leading-relaxed italic md:text-3xl">
-          “Há encontros que parecem combinados muito antes da gente nascer.
-          O nosso foi assim.”
-        </p>
-        <p className="mt-8 text-sm leading-loose text-muted-foreground">
-          Depois de tantos caminhos, escolhemos um só — e ele passa por você.
-          Será uma alegria imensa ter quem amamos por perto no dia em que
-          dissermos sim diante de Deus. Venha celebrar, rir, chorar um pouco e
-          dançar até o fim da noite conosco.
-        </p>
+      <section className="relative overflow-hidden px-6 py-20 md:py-28">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 opacity-60"
+          style={{
+            backgroundImage: `url(${patternChampanhe.url})`,
+            backgroundSize: "260px auto",
+            backgroundRepeat: "repeat",
+          }}
+        />
+        <div className="relative mx-auto max-w-2xl text-center">
+          <p className="text-[0.6rem] tracking-wide-caps text-muted-foreground">
+            O nosso convite
+          </p>
+          <div className="rule-line" />
+          <p className="font-display text-2xl leading-relaxed italic md:text-3xl">
+            “Há encontros que parecem combinados muito antes da gente nascer.
+            O nosso foi assim.”
+          </p>
+          <p className="mt-8 text-sm leading-loose text-muted-foreground">
+            Depois de tantos caminhos, escolhemos um só — e ele passa por você.
+            Será uma alegria imensa ter quem amamos por perto no dia em que
+            dissermos sim diante de Deus. Venha celebrar, rir, chorar um pouco e
+            dançar até o fim da noite conosco.
+          </p>
+        </div>
       </section>
 
       {/* Fotos */}
-      <section className="mx-auto max-w-6xl px-6 pb-28">
-        <div className="grid gap-4 md:grid-cols-3">
+      <section className="mx-auto max-w-4xl px-6 pb-20 md:pb-28">
+        <div className="grid gap-4 sm:grid-cols-2">
           <img
             src={casal1}
             alt="Paula e Thiago abraçados"
             width={1200}
             height={1500}
             loading="lazy"
-            className="h-[26rem] w-full object-cover md:h-[32rem]"
+            decoding="async"
+            className="h-64 w-full object-cover md:h-80"
           />
-          <div className="grid gap-4">
-            <img
-              src={casal2}
-              alt="Paula e Thiago de mãos dadas"
-              width={1200}
-              height={900}
-              loading="lazy"
-              className="h-[12.5rem] w-full object-cover md:h-[15.5rem]"
-            />
-            <img
-              src={casal3}
-              alt="Paula e Thiago sorrindo"
-              width={1000}
-              height={1250}
-              loading="lazy"
-              className="h-[12.5rem] w-full object-cover md:h-[15.5rem]"
-            />
-          </div>
-          <div className="flex flex-col justify-center bg-secondary px-8 py-12 text-center">
-            <p className="text-[0.65rem] tracking-wide-caps text-muted-foreground">
-              Desde 2018
-            </p>
-            <div className="rule-line" />
-            <p className="font-display text-xl leading-relaxed italic">
-              Oito anos de história, uma promessa e um para sempre que começa
-              agora.
-            </p>
-          </div>
+          <img
+            src={casal2}
+            alt="Paula e Thiago de mãos dadas"
+            width={1200}
+            height={900}
+            loading="lazy"
+            decoding="async"
+            className="h-64 w-full object-cover md:h-80"
+          />
+        </div>
+        <div className="mt-4 bg-secondary px-8 py-12 text-center">
+          <p className="text-[0.6rem] tracking-wide-caps text-muted-foreground">
+            O nosso tempo
+          </p>
+          <div className="rule-line" />
+          <p className="mx-auto max-w-md font-display text-xl leading-relaxed italic">
+            Uma história que veio devagar, virou casa — e agora vira promessa.
+          </p>
         </div>
       </section>
+
 
       {/* Cerimônia e recepção */}
       <section className="bg-foreground px-6 py-28 text-background">
