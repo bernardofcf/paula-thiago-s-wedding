@@ -1,24 +1,232 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import monogramaBranco from "@/assets/monograma-branco.png.asset.json";
+import monogramaPreto from "@/assets/monograma-preto.png.asset.json";
+import casal1 from "@/assets/casal-1.jpg";
+import casal2 from "@/assets/casal-2.jpg";
+import casal3 from "@/assets/casal-3.jpg";
+import { presentes, type Presente } from "@/data/presentes";
+import { formatarBRL } from "@/lib/pix";
+import { PresenteDialog } from "@/components/PresenteDialog";
+
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Paula & Thiago — Casamento 24.10.2026" },
+      {
+        name: "description",
+        content:
+          "Paula e Thiago se casam em 24 de outubro de 2026, na Catedral Metropolitana de Belém. Veja a lista de presentes com PIX.",
+      },
+      { property: "og:title", content: "Paula & Thiago — Casamento 24.10.2026" },
+      {
+        property: "og:description",
+        content:
+          "Cerimônia às 20h na Igreja da Sé e recepção na Usina 265. Lista de presentes com PIX.",
+      },
+    ],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
+  const [selecionado, setSelecionado] = useState<Presente | null>(null);
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
+    <main className="bg-background">
+      {/* Capa */}
+      <section className="relative flex min-h-screen flex-col items-center justify-center bg-foreground px-6 py-24 text-center">
+        <img
+          src={monogramaBranco.url}
+          alt="Monograma Paula e Thiago"
+          width={200}
+          height={160}
+          className="w-32 opacity-95 md:w-44"
+        />
+        <p className="mt-10 text-[0.65rem] tracking-wide-caps text-background/60">
+          Vamos nos casar
+        </p>
+        <h1 className="mt-6 font-script text-6xl leading-[1.1] text-background md:text-8xl">
+          Paula <span className="font-display italic">e</span> Thiago
+        </h1>
+        <p className="mt-10 text-[0.7rem] tracking-wide-caps text-background/70">
+          24 · Outubro · 2026 &nbsp;—&nbsp; Belém, Pará
+        </p>
+      </section>
+
+      {/* Convite */}
+      <section className="mx-auto max-w-2xl px-6 py-28 text-center">
+        <p className="text-[0.65rem] tracking-wide-caps text-muted-foreground">
+          O nosso convite
+        </p>
+        <div className="rule-line" />
+        <p className="font-display text-2xl leading-relaxed italic md:text-3xl">
+          “Há encontros que parecem combinados muito antes da gente nascer.
+          O nosso foi assim.”
+        </p>
+        <p className="mt-8 text-sm leading-loose text-muted-foreground">
+          Depois de tantos caminhos, escolhemos um só — e ele passa por você.
+          Será uma alegria imensa ter quem amamos por perto no dia em que
+          dissermos sim diante de Deus. Venha celebrar, rir, chorar um pouco e
+          dançar até o fim da noite conosco.
+        </p>
+      </section>
+
+      {/* Fotos */}
+      <section className="mx-auto max-w-6xl px-6 pb-28">
+        <div className="grid gap-4 md:grid-cols-3">
+          <img
+            src={casal1}
+            alt="Paula e Thiago abraçados"
+            width={1200}
+            height={1500}
+            loading="lazy"
+            className="h-[26rem] w-full object-cover md:h-[32rem]"
+          />
+          <div className="grid gap-4">
+            <img
+              src={casal2}
+              alt="Paula e Thiago de mãos dadas"
+              width={1200}
+              height={900}
+              loading="lazy"
+              className="h-[12.5rem] w-full object-cover md:h-[15.5rem]"
+            />
+            <img
+              src={casal3}
+              alt="Paula e Thiago sorrindo"
+              width={1000}
+              height={1250}
+              loading="lazy"
+              className="h-[12.5rem] w-full object-cover md:h-[15.5rem]"
+            />
+          </div>
+          <div className="flex flex-col justify-center bg-secondary px-8 py-12 text-center">
+            <p className="text-[0.65rem] tracking-wide-caps text-muted-foreground">
+              Desde 2018
+            </p>
+            <div className="rule-line" />
+            <p className="font-display text-xl leading-relaxed italic">
+              Oito anos de história, uma promessa e um para sempre que começa
+              agora.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Cerimônia e recepção */}
+      <section className="bg-foreground px-6 py-28 text-background">
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="text-[0.65rem] tracking-wide-caps text-background/60">
+            Sábado, 24 de outubro de 2026
+          </p>
+          <h2 className="mt-6 font-script text-5xl text-background md:text-6xl">
+            Onde e quando
+          </h2>
+
+          <div className="mt-16 grid gap-14 md:grid-cols-2">
+            <div>
+              <p className="text-[0.65rem] tracking-wide-caps text-background/60">
+                Cerimônia · 20h
+              </p>
+              <h3 className="mt-4 font-display text-2xl text-background">
+                Catedral Metropolitana de Belém
+              </h3>
+              <p className="mt-2 text-sm text-background/70">
+                Igreja da Sé — Cidade Velha, Belém/PA
+              </p>
+            </div>
+            <div>
+              <p className="text-[0.65rem] tracking-wide-caps text-background/60">
+                Recepção · logo após
+              </p>
+              <h3 className="mt-4 font-display text-2xl text-background">
+                Usina 265
+              </h3>
+              <p className="mt-2 text-sm text-background/70">
+                R. Municipalidade, 265 — Reduto, Belém/PA
+              </p>
+            </div>
+          </div>
+
+          <p className="mt-16 text-[0.65rem] tracking-wide-caps text-background/60">
+            Traje · Passeio completo
+          </p>
+        </div>
+      </section>
+
+      {/* Lista de presentes */}
+      <section id="presentes" className="mx-auto max-w-6xl px-6 py-28">
+        <div className="text-center">
+          <p className="text-[0.65rem] tracking-wide-caps text-muted-foreground">
+            Lista de presentes
+          </p>
+          <h2 className="mt-6 font-script text-5xl md:text-6xl">
+            Presentear é abençoar
+          </h2>
+          <div className="rule-line" />
+          <p className="mx-auto max-w-xl text-sm leading-loose text-muted-foreground">
+            Sua presença já é o maior presente. Mas, se quiser fazer parte do
+            nosso começo, escolha um item abaixo: um QR Code PIX com o valor
+            exato será gerado na hora.
+          </p>
+        </div>
+
+        <div className="mt-16 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          {presentes.map((p) => (
+            <button
+              key={p.id}
+              onClick={() => setSelecionado(p)}
+              className="group text-left"
+            >
+              <div className="overflow-hidden bg-secondary">
+                <img
+                  src={p.imagem}
+                  alt={p.nome}
+                  width={800}
+                  height={800}
+                  loading="lazy"
+                  className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+              <h3 className="mt-5 font-display text-xl">{p.nome}</h3>
+              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                {p.descricao}
+              </p>
+              <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
+                <span className="font-display text-lg">
+                  {formatarBRL(p.valor)}
+                </span>
+                <span className="text-[0.6rem] tracking-wide-caps text-muted-foreground transition-colors group-hover:text-foreground">
+                  Presentear
+                </span>
+              </div>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* Rodapé */}
+      <footer className="border-t border-border px-6 py-20 text-center">
+        <img
+          src={monogramaPreto.url}
+          alt="Monograma Paula e Thiago"
+          width={140}
+          height={112}
+          loading="lazy"
+          className="mx-auto w-20"
+        />
+        <p className="mt-8 font-script text-3xl">Com amor, Paula e Thiago</p>
+        <p className="mt-6 text-[0.6rem] tracking-wide-caps text-muted-foreground">
+          Belém · 24.10.2026
+        </p>
+      </footer>
+
+      <PresenteDialog
+        presente={selecionado}
+        onClose={() => setSelecionado(null)}
       />
-    </div>
+    </main>
   );
 }
