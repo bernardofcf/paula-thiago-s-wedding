@@ -152,8 +152,21 @@ function Home() {
 
 
       {/* Cerimônia e recepção */}
-      <section className="bg-foreground px-6 py-28 text-background">
-        <div className="mx-auto max-w-4xl text-center">
+      <section className="relative overflow-hidden bg-foreground px-6 py-20 text-background md:py-28">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-12 bottom-0 h-36 w-36 opacity-[0.15] invert md:h-52 md:w-52"
+          style={{
+            backgroundImage: `url(${patternPreto.url})`,
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            maskImage:
+              "radial-gradient(closest-side, black 45%, transparent 100%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-4xl text-center">
+
           <p className="text-[0.65rem] tracking-wide-caps text-background/60">
             Sábado, 24 de outubro de 2026
           </p>
