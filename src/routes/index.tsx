@@ -40,11 +40,26 @@ function Home() {
       <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-foreground px-6 py-20 text-center">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.14] invert"
+          className="pointer-events-none absolute -top-10 left-1/2 h-40 w-40 -translate-x-1/2 opacity-[0.18] invert md:h-56 md:w-56"
           style={{
             backgroundImage: `url(${patternPreto.url})`,
-            backgroundSize: "300px auto",
-            backgroundRepeat: "repeat",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            maskImage:
+              "radial-gradient(closest-side, black 40%, transparent 100%)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-12 left-1/2 h-40 w-40 -translate-x-1/2 rotate-180 opacity-[0.18] invert md:h-56 md:w-56"
+          style={{
+            backgroundImage: `url(${patternPreto.url})`,
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            maskImage:
+              "radial-gradient(closest-side, black 40%, transparent 100%)",
           }}
         />
         <div className="relative">
@@ -73,11 +88,14 @@ function Home() {
       <section className="relative overflow-hidden px-6 py-20 md:py-28">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-60"
+          className="pointer-events-none absolute -right-10 top-6 h-32 w-32 opacity-40 md:h-48 md:w-48"
           style={{
             backgroundImage: `url(${patternChampanhe.url})`,
-            backgroundSize: "260px auto",
-            backgroundRepeat: "repeat",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            maskImage:
+              "radial-gradient(closest-side, black 45%, transparent 100%)",
           }}
         />
         <div className="relative mx-auto max-w-2xl text-center">
@@ -97,6 +115,7 @@ function Home() {
           </p>
         </div>
       </section>
+
 
       {/* Fotos */}
       <section className="mx-auto max-w-4xl px-6 pb-20 md:pb-28">
@@ -133,8 +152,21 @@ function Home() {
 
 
       {/* Cerimônia e recepção */}
-      <section className="bg-foreground px-6 py-28 text-background">
-        <div className="mx-auto max-w-4xl text-center">
+      <section className="relative overflow-hidden bg-foreground px-6 py-20 text-background md:py-28">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-12 bottom-0 h-36 w-36 opacity-[0.15] invert md:h-52 md:w-52"
+          style={{
+            backgroundImage: `url(${patternPreto.url})`,
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            maskImage:
+              "radial-gradient(closest-side, black 45%, transparent 100%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-4xl text-center">
+
           <p className="text-[0.65rem] tracking-wide-caps text-background/60">
             Sábado, 24 de outubro de 2026
           </p>
@@ -142,7 +174,7 @@ function Home() {
             Onde e quando
           </h2>
 
-          <div className="mt-16 grid gap-14 md:grid-cols-2">
+          <div className="mt-12 grid gap-10 md:mt-16 md:grid-cols-2 md:gap-14">
             <div>
               <p className="text-[0.65rem] tracking-wide-caps text-background/60">
                 Cerimônia · 20h
@@ -174,8 +206,23 @@ function Home() {
       </section>
 
       {/* Lista de presentes */}
-      <section id="presentes" className="mx-auto max-w-6xl px-6 py-28">
-        <div className="text-center">
+      <section
+        id="presentes"
+        className="relative mx-auto max-w-6xl overflow-hidden px-6 py-20 md:py-28"
+      >
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-8 top-4 h-28 w-28 opacity-40 md:h-44 md:w-44"
+          style={{
+            backgroundImage: `url(${patternChampanhe.url})`,
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            maskImage:
+              "radial-gradient(closest-side, black 45%, transparent 100%)",
+          }}
+        />
+        <div className="relative text-center">
           <p className="text-[0.65rem] tracking-wide-caps text-muted-foreground">
             Lista de presentes
           </p>
@@ -190,8 +237,9 @@ function Home() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 md:mt-16 lg:grid-cols-3">
           {presentes.map((p) => (
+
             <button
               key={p.id}
               onClick={() => setSelecionado(p)}

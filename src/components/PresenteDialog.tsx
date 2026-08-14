@@ -50,16 +50,17 @@ export function PresenteDialog({ presente, onClose }: Props) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-foreground/70 px-4 py-10 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto bg-foreground/70 px-4 py-6 backdrop-blur-sm md:py-10"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-label={`Presentear ${presente.nome}`}
     >
       <div
-        className="animate-fade-up w-full max-w-md border border-border bg-card p-8 text-center shadow-2xl"
+        className="animate-fade-up w-full max-w-md border border-border bg-card p-6 text-center shadow-2xl md:p-8"
         onClick={(e) => e.stopPropagation()}
       >
+
         <button
           onClick={onClose}
           aria-label="Fechar"
