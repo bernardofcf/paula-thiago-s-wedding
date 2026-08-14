@@ -40,11 +40,26 @@ function Home() {
       <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-foreground px-6 py-20 text-center">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-[0.14] invert"
+          className="pointer-events-none absolute -top-10 left-1/2 h-40 w-40 -translate-x-1/2 opacity-[0.18] invert md:h-56 md:w-56"
           style={{
             backgroundImage: `url(${patternPreto.url})`,
-            backgroundSize: "300px auto",
-            backgroundRepeat: "repeat",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            maskImage:
+              "radial-gradient(closest-side, black 40%, transparent 100%)",
+          }}
+        />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -bottom-12 left-1/2 h-40 w-40 -translate-x-1/2 rotate-180 opacity-[0.18] invert md:h-56 md:w-56"
+          style={{
+            backgroundImage: `url(${patternPreto.url})`,
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            maskImage:
+              "radial-gradient(closest-side, black 40%, transparent 100%)",
           }}
         />
         <div className="relative">
@@ -73,11 +88,14 @@ function Home() {
       <section className="relative overflow-hidden px-6 py-20 md:py-28">
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 opacity-60"
+          className="pointer-events-none absolute -right-10 top-6 h-32 w-32 opacity-40 md:h-48 md:w-48"
           style={{
             backgroundImage: `url(${patternChampanhe.url})`,
-            backgroundSize: "260px auto",
-            backgroundRepeat: "repeat",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            maskImage:
+              "radial-gradient(closest-side, black 45%, transparent 100%)",
           }}
         />
         <div className="relative mx-auto max-w-2xl text-center">
@@ -97,6 +115,7 @@ function Home() {
           </p>
         </div>
       </section>
+
 
       {/* Fotos */}
       <section className="mx-auto max-w-4xl px-6 pb-20 md:pb-28">
