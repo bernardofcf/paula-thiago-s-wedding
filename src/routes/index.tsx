@@ -206,8 +206,23 @@ function Home() {
       </section>
 
       {/* Lista de presentes */}
-      <section id="presentes" className="mx-auto max-w-6xl px-6 py-28">
-        <div className="text-center">
+      <section
+        id="presentes"
+        className="relative mx-auto max-w-6xl overflow-hidden px-6 py-20 md:py-28"
+      >
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -left-8 top-4 h-28 w-28 opacity-40 md:h-44 md:w-44"
+          style={{
+            backgroundImage: `url(${patternChampanhe.url})`,
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            maskImage:
+              "radial-gradient(closest-side, black 45%, transparent 100%)",
+          }}
+        />
+        <div className="relative text-center">
           <p className="text-[0.65rem] tracking-wide-caps text-muted-foreground">
             Lista de presentes
           </p>
@@ -222,8 +237,9 @@ function Home() {
           </p>
         </div>
 
-        <div className="mt-16 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 md:mt-16 lg:grid-cols-3">
           {presentes.map((p) => (
+
             <button
               key={p.id}
               onClick={() => setSelecionado(p)}
