@@ -174,7 +174,7 @@ function Home() {
             Onde e quando
           </h2>
 
-          <div className="mt-16 grid gap-14 md:grid-cols-2">
+          <div className="mt-12 grid gap-10 md:mt-16 md:grid-cols-2 md:gap-14">
             <div>
               <p className="text-[0.65rem] tracking-wide-caps text-background/60">
                 Cerimônia · 20h
