@@ -1,10 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 
-import monogramaBranco from "@/assets/monograma-branco.png.asset.json";
-import monogramaPreto from "@/assets/monograma-preto.png.asset.json";
-import patternPreto from "@/assets/pattern-preto.png.asset.json";
-import patternChampanhe from "@/assets/pattern-champanhe.png.asset.json";
+import monogramaBranco from "@/assets/monograma-branco.png";
+import monogramaPreto from "@/assets/monograma-preto.png";
+import iconeFlor from "@/assets/icons/flor.png";
+import iconeIgreja from "@/assets/icons/igreja.png";
+import iconeBuque from "@/assets/icons/buque.png";
+import iconeMapa from "@/assets/icons/mapa.png";
+import iconeOndas from "@/assets/icons/ondas.png";
+import iconeAliancas from "@/assets/icons/aliancas.png";
+import iconeAviao from "@/assets/icons/aviao.png";
+import iconeSushi from "@/assets/icons/sushi.png";
 import casal1 from "@/assets/casal-1.jpg";
 import casal2 from "@/assets/casal-2.jpg";
 import { presentes, type Presente } from "@/data/presentes";
