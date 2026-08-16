@@ -37,6 +37,29 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+function Ornamento({
+  src,
+  className,
+  invertido = false,
+}: {
+  src: string;
+  className?: string;
+  invertido?: boolean;
+}) {
+  return (
+    <img
+      src={src}
+      alt=""
+      aria-hidden
+      loading="lazy"
+      decoding="async"
+      className={`pointer-events-none absolute select-none ${
+        invertido ? "opacity-25 invert" : "opacity-25"
+      } ${className ?? ""}`}
+    />
+  );
+}
+
 function Home() {
   const [selecionado, setSelecionado] = useState<Presente | null>(null);
 
