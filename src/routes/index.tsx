@@ -89,18 +89,11 @@ function Home() {
 
       {/* Convite */}
       <section className="relative overflow-hidden px-6 py-20 md:py-28">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -right-10 top-6 h-32 w-32 opacity-40 md:h-48 md:w-48"
-          style={{
-            backgroundImage: `url(${patternChampanhe.url})`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            maskImage:
-              "radial-gradient(closest-side, black 45%, transparent 100%)",
-          }}
+        <Ornamento
+          src={iconeFlor}
+          className="right-2 top-6 w-14 md:right-16 md:w-20"
         />
+
         <div className="relative mx-auto max-w-2xl text-center">
           <p className="text-[0.6rem] tracking-wide-caps text-muted-foreground">
             O nosso convite
