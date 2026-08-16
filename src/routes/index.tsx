@@ -1,10 +1,16 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 
-import monogramaBranco from "@/assets/monograma-branco.png.asset.json";
-import monogramaPreto from "@/assets/monograma-preto.png.asset.json";
-import patternPreto from "@/assets/pattern-preto.png.asset.json";
-import patternChampanhe from "@/assets/pattern-champanhe.png.asset.json";
+import monogramaBranco from "@/assets/monograma-branco.png";
+import monogramaPreto from "@/assets/monograma-preto.png";
+import iconeFlor from "@/assets/icons/flor.png";
+import iconeIgreja from "@/assets/icons/igreja.png";
+import iconeBuque from "@/assets/icons/buque.png";
+import iconeMapa from "@/assets/icons/mapa.png";
+import iconeOndas from "@/assets/icons/ondas.png";
+import iconeAliancas from "@/assets/icons/aliancas.png";
+import iconeAviao from "@/assets/icons/aviao.png";
+import iconeSushi from "@/assets/icons/sushi.png";
 import casal1 from "@/assets/casal-1.jpg";
 import casal2 from "@/assets/casal-2.jpg";
 import { presentes, type Presente } from "@/data/presentes";
@@ -31,6 +37,29 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
+function Ornamento({
+  src,
+  className,
+  invertido = false,
+}: {
+  src: string;
+  className?: string;
+  invertido?: boolean;
+}) {
+  return (
+    <img
+      src={src}
+      alt=""
+      aria-hidden
+      loading="lazy"
+      decoding="async"
+      className={`pointer-events-none absolute select-none ${
+        invertido ? "opacity-25 invert" : "opacity-25"
+      } ${className ?? ""}`}
+    />
+  );
+}
+
 function Home() {
   const [selecionado, setSelecionado] = useState<Presente | null>(null);
 
@@ -38,33 +67,30 @@ function Home() {
     <main className="bg-background">
       {/* Capa */}
       <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-foreground px-6 py-20 text-center">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-10 left-1/2 h-40 w-40 -translate-x-1/2 opacity-[0.18] invert md:h-56 md:w-56"
-          style={{
-            backgroundImage: `url(${patternPreto.url})`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            maskImage:
-              "radial-gradient(closest-side, black 40%, transparent 100%)",
-          }}
+        <Ornamento
+          src={iconeFlor}
+          className="left-4 top-10 w-14 md:left-16 md:top-16 md:w-20"
+          invertido
         />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -bottom-12 left-1/2 h-40 w-40 -translate-x-1/2 rotate-180 opacity-[0.18] invert md:h-56 md:w-56"
-          style={{
-            backgroundImage: `url(${patternPreto.url})`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            maskImage:
-              "radial-gradient(closest-side, black 40%, transparent 100%)",
-          }}
+        <Ornamento
+          src={iconeAliancas}
+          className="right-5 top-16 w-12 md:right-24 md:w-16"
+          invertido
+        />
+        <Ornamento
+          src={iconeAviao}
+          className="bottom-16 left-6 w-16 md:left-24 md:w-24"
+          invertido
+        />
+        <Ornamento
+          src={iconeOndas}
+          className="bottom-10 right-4 w-20 md:right-20 md:w-28"
+          invertido
         />
         <div className="relative">
           <img
-            src={monogramaBranco.url}
+            src={monogramaBranco}
+
             alt="Monograma Paula e Thiago"
             width={200}
             height={160}
@@ -86,18 +112,11 @@ function Home() {
 
       {/* Convite */}
       <section className="relative overflow-hidden px-6 py-20 md:py-28">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -right-10 top-6 h-32 w-32 opacity-40 md:h-48 md:w-48"
-          style={{
-            backgroundImage: `url(${patternChampanhe.url})`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            maskImage:
-              "radial-gradient(closest-side, black 45%, transparent 100%)",
-          }}
+        <Ornamento
+          src={iconeFlor}
+          className="right-2 top-6 w-14 md:right-16 md:w-20"
         />
+
         <div className="relative mx-auto max-w-2xl text-center">
           <p className="text-[0.6rem] tracking-wide-caps text-muted-foreground">
             O nosso convite
@@ -153,18 +172,17 @@ function Home() {
 
       {/* Cerimônia e recepção */}
       <section className="relative overflow-hidden bg-foreground px-6 py-20 text-background md:py-28">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -left-12 bottom-0 h-36 w-36 opacity-[0.15] invert md:h-52 md:w-52"
-          style={{
-            backgroundImage: `url(${patternPreto.url})`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            maskImage:
-              "radial-gradient(closest-side, black 45%, transparent 100%)",
-          }}
+        <Ornamento
+          src={iconeIgreja}
+          className="left-4 top-10 w-14 md:left-16 md:w-20"
+          invertido
         />
+        <Ornamento
+          src={iconeMapa}
+          className="bottom-10 right-4 w-16 md:right-16 md:w-24"
+          invertido
+        />
+
         <div className="relative mx-auto max-w-4xl text-center">
 
           <p className="text-[0.65rem] tracking-wide-caps text-background/60">
@@ -210,18 +228,15 @@ function Home() {
         id="presentes"
         className="relative mx-auto max-w-6xl overflow-hidden px-6 py-20 md:py-28"
       >
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -left-8 top-4 h-28 w-28 opacity-40 md:h-44 md:w-44"
-          style={{
-            backgroundImage: `url(${patternChampanhe.url})`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            maskImage:
-              "radial-gradient(closest-side, black 45%, transparent 100%)",
-          }}
+        <Ornamento
+          src={iconeBuque}
+          className="-left-2 top-4 w-14 md:left-2 md:w-20"
         />
+        <Ornamento
+          src={iconeSushi}
+          className="right-0 top-8 w-16 md:right-4 md:w-24"
+        />
+
         <div className="relative text-center">
           <p className="text-[0.65rem] tracking-wide-caps text-muted-foreground">
             Lista de presentes
@@ -275,7 +290,7 @@ function Home() {
       {/* Rodapé */}
       <footer className="border-t border-border px-6 py-20 text-center">
         <img
-          src={monogramaPreto.url}
+          src={monogramaPreto}
           alt="Monograma Paula e Thiago"
           width={140}
           height={112}
