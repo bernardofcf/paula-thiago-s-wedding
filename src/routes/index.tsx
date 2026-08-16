@@ -156,18 +156,17 @@ function Home() {
 
       {/* Cerimônia e recepção */}
       <section className="relative overflow-hidden bg-foreground px-6 py-20 text-background md:py-28">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -left-12 bottom-0 h-36 w-36 opacity-[0.15] invert md:h-52 md:w-52"
-          style={{
-            backgroundImage: `url(${patternPreto.url})`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            maskImage:
-              "radial-gradient(closest-side, black 45%, transparent 100%)",
-          }}
+        <Ornamento
+          src={iconeIgreja}
+          className="left-4 top-10 w-14 md:left-16 md:w-20"
+          invertido
         />
+        <Ornamento
+          src={iconeMapa}
+          className="bottom-10 right-4 w-16 md:right-16 md:w-24"
+          invertido
+        />
+
         <div className="relative mx-auto max-w-4xl text-center">
 
           <p className="text-[0.65rem] tracking-wide-caps text-background/60">
