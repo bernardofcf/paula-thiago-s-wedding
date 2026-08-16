@@ -44,33 +44,30 @@ function Home() {
     <main className="bg-background">
       {/* Capa */}
       <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden bg-foreground px-6 py-20 text-center">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -top-10 left-1/2 h-40 w-40 -translate-x-1/2 opacity-[0.18] invert md:h-56 md:w-56"
-          style={{
-            backgroundImage: `url(${patternPreto.url})`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            maskImage:
-              "radial-gradient(closest-side, black 40%, transparent 100%)",
-          }}
+        <Ornamento
+          src={iconeFlor}
+          className="left-4 top-10 w-14 md:left-16 md:top-16 md:w-20"
+          invertido
         />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -bottom-12 left-1/2 h-40 w-40 -translate-x-1/2 rotate-180 opacity-[0.18] invert md:h-56 md:w-56"
-          style={{
-            backgroundImage: `url(${patternPreto.url})`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            maskImage:
-              "radial-gradient(closest-side, black 40%, transparent 100%)",
-          }}
+        <Ornamento
+          src={iconeAliancas}
+          className="right-5 top-16 w-12 md:right-24 md:w-16"
+          invertido
+        />
+        <Ornamento
+          src={iconeAviao}
+          className="bottom-16 left-6 w-16 md:left-24 md:w-24"
+          invertido
+        />
+        <Ornamento
+          src={iconeOndas}
+          className="bottom-10 right-4 w-20 md:right-20 md:w-28"
+          invertido
         />
         <div className="relative">
           <img
-            src={monogramaBranco.url}
+            src={monogramaBranco}
+
             alt="Monograma Paula e Thiago"
             width={200}
             height={160}
