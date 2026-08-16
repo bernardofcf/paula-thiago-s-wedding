@@ -278,7 +278,7 @@ function Home() {
       {/* Rodapé */}
       <footer className="border-t border-border px-6 py-20 text-center">
         <img
-          src={monogramaPreto.url}
+          src={monogramaPreto}
           alt="Monograma Paula e Thiago"
           width={140}
           height={112}
