@@ -213,18 +213,15 @@ function Home() {
         id="presentes"
         className="relative mx-auto max-w-6xl overflow-hidden px-6 py-20 md:py-28"
       >
-        <div
-          aria-hidden
-          className="pointer-events-none absolute -left-8 top-4 h-28 w-28 opacity-40 md:h-44 md:w-44"
-          style={{
-            backgroundImage: `url(${patternChampanhe.url})`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center",
-            maskImage:
-              "radial-gradient(closest-side, black 45%, transparent 100%)",
-          }}
+        <Ornamento
+          src={iconeBuque}
+          className="-left-2 top-4 w-14 md:left-2 md:w-20"
         />
+        <Ornamento
+          src={iconeSushi}
+          className="right-0 top-8 w-16 md:right-4 md:w-24"
+        />
+
         <div className="relative text-center">
           <p className="text-[0.65rem] tracking-wide-caps text-muted-foreground">
             Lista de presentes
