@@ -18,7 +18,8 @@ Sem instalar Framer Motion (≈50 kB). Usar `IntersectionObserver` + transiçõe
   - Cerimônia/recepção: título e os dois cartões.
   - Presentes: cabeçalho e cada card com atraso escalonado curto (limitado, para não atrasar itens da lista longa).
   - Rodapé.
-- Ornamentos (ícones do pattern) ganham um fade-in bem sutil, sem deslocamento.
+- Ornamentos (ícones do pattern): remover de todas as seções, mantendo apenas na seção "Onde e quando" (igreja e mapa). Os demais ícones importados na página saem junto.
+
 
 ## Cuidados de performance e acessibilidade
 
