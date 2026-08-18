@@ -7,7 +7,7 @@ import monogramaPreto from "@/assets/monograma-preto.png";
 import iconeIgreja from "@/assets/icons/igreja.png";
 import iconeMapa from "@/assets/icons/mapa.png";
 import casal1 from "@/assets/paulo_e_monize.jpeg.asset.json";
-import casal2 from "@/assets/paulo_e_monize_2.jpeg.asset.json";
+import casal2 from "@/assets/paulo_e_monize_2_retirar_borda_branca.jpeg.asset.json";
 import casal3 from "@/assets/paulo_e_monize_3.jpeg.asset.json";
 import casal4 from "@/assets/paulo_e_monize_4.jpeg.asset.json";
 import casalIlustracao from "@/assets/paulo_e_monize_5.jpeg.asset.json";
