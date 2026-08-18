@@ -70,7 +70,7 @@ function Home() {
         <div className="relative">
           <Reveal>
             <img
-              src={monogramaBranco}
+              src={monogramaBranco.url}
               alt="Monograma Paula e Thiago"
               width={200}
               height={160}
