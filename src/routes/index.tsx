@@ -418,29 +418,24 @@ function MensagemForm() {
 
     setCarregando(true);
     try {
-      const response = await fetch("https://sheetdb.io/api/v1/qowq2p70t611u", {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbyqmigaZoiLEUex0vhSTOCUadcYE6AuTYhKVuLHgZc5is4tlO4SpfQscww41JuKppetRQ/exec", {
         method: "POST",
+        mode: "no-cors",
+        redirect: "follow",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "text/plain;charset=utf-8",
         },
         body: JSON.stringify({
-          data: [
-            {
-              Nome: nome,
-              Mensagem: mensagem,
-              Data: new Date().toLocaleString("pt-BR"),
-            },
-          ],
+          nome: nome,
+          mensagem: mensagem,
         }),
       });
 
-      if (response.ok) {
-        toast.success("Mensagem enviada com sucesso! ❤️");
-        setNome("");
-        setMensagem("");
-      } else {
-        throw new Error("Erro ao enviar");
-      }
+      // Google Apps Script with no-cors will return an opaque response, 
+      // but if it doesn't throw, it likely succeeded.
+      toast.success("Mensagem enviada com sucesso! ❤️");
+      setNome("");
+      setMensagem("");
     } catch (error) {
       toast.error("Não foi possível enviar sua mensagem. Tente novamente.");
     } finally {
@@ -504,17 +499,16 @@ function MensagemForm() {
 
 
 function MuralMensagens() {
-  const [mensagens, setMensagens] = useState<{ Nome: string; Mensagem: string; Data: string }[]>([]);
+  const [mensagens, setMensagens] = useState<{ nome: string; mensagem: string; data?: string }[]>([]);
   const [carregando, setCarregando] = useState(true);
 
   useEffect(() => {
-    fetch("https://sheetdb.io/api/v1/qowq2p70t611u")
+    fetch("https://script.google.com/macros/s/AKfycbyqmigaZoiLEUex0vhSTOCUadcYE6AuTYhKVuLHgZc5is4tlO4SpfQscww41JuKppetRQ/exec")
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
-          // Filtrar entradas vazias e ordenar por data (se possível) ou apenas inverter para as mais recentes
-          const validas = data.filter((m) => m.Nome && m.Mensagem).reverse();
-          setMensagens(validas);
+          // A API já filtra no backend
+          setMensagens(data);
         }
       })
       .catch(() => toast.error("Não foi possível carregar o mural."))
@@ -550,15 +544,17 @@ function MuralMensagens() {
               </svg>
             </div>
             <p className="flex-grow font-display text-base leading-relaxed italic text-foreground/90">
-              "{msg.Mensagem}"
+              "{msg.mensagem}"
             </p>
             <div className="mt-6 border-t border-border pt-4">
               <p className="text-[0.65rem] font-bold tracking-wide-caps text-foreground">
-                {msg.Nome}
+                {msg.nome}
               </p>
-              <p className="mt-1 text-[0.6rem] text-muted-foreground">
-                {msg.Data}
-              </p>
+              {msg.data && (
+                <p className="mt-1 text-[0.6rem] text-muted-foreground">
+                  {msg.data}
+                </p>
+              )}
             </div>
           </div>
         </Reveal>
