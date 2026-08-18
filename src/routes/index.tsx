@@ -319,6 +319,10 @@ function Home() {
             <MensagemForm />
           </Reveal>
         </div>
+
+        <Reveal delay={200} className="mx-auto mt-20 max-w-5xl">
+          <MuralMensagens />
+        </Reveal>
       </section>
 
       {/* Rodapé */}
@@ -494,5 +498,70 @@ function MensagemForm() {
         )}
       </button>
     </form>
+  );
+}
+
+
+function MuralMensagens() {
+  const [mensagens, setMensagens] = useState<{ Nome: string; Mensagem: string; Data: string }[]>([]);
+  const [carregando, setCarregando] = useState(true);
+
+  useEffect(() => {
+    fetch("https://sheetdb.io/api/v1/qowq2p70t611u")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data)) {
+          // Filtrar entradas vazias e ordenar por data (se possível) ou apenas inverter para as mais recentes
+          const validas = data.filter((m) => m.Nome && m.Mensagem).reverse();
+          setMensagens(validas);
+        }
+      })
+      .catch(() => toast.error("Não foi possível carregar o mural."))
+      .finally(() => setCarregando(false));
+  }, []);
+
+  if (carregando) {
+    return (
+      <div className="flex justify-center py-10">
+        <span className="text-[0.65rem] tracking-wide-caps text-muted-foreground animate-pulse">
+          Carregando mensagens...
+        </span>
+      </div>
+    );
+  }
+
+  if (mensagens.length === 0) return null;
+
+  return (
+    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {mensagens.map((msg, index) => (
+        <Reveal key={index} delay={index * 50} className="h-full">
+          <div className="flex h-full flex-col border border-border bg-card p-6 shadow-sm transition-transform hover:-translate-y-1">
+            <div className="mb-4 text-secondary-foreground opacity-20">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M14.017 21L14.017 18C14.017 16.8954 14.9124 16 16.017 16H19.017C19.5693 16 20.017 15.5523 20.017 15V9C20.017 8.44772 19.5693 8 19.017 8H15.017C14.4647 8 14.017 8.44772 14.017 9V12C14.017 12.5523 13.5693 13 13.017 13H11.017C10.4647 13 10.017 12.5523 10.017 12V9C10.017 6.79086 11.8079 5 14.017 5H19.017C21.2261 5 23.017 6.79086 23.017 9V15C23.017 17.2091 21.2261 19 19.017 19H17.017C16.4647 19 16.017 19.4477 16.017 20V21H14.017ZM1.017 21L1.017 18C1.017 16.8954 1.91243 16 3.017 16H6.017C6.56928 16 7.017 15.5523 7.017 15V9C7.017 8.44772 6.56928 8 6.017 8H2.017C1.46472 8 1.017 8.44772 1.017 9V12C1.017 12.5523 0.569282 13 0.017 13H-1.983C-2.53528 13 -2.983 12.5523 -2.983 12V9C-2.983 6.79086 -1.19214 5 1.017 5H6.017C8.22614 5 10.017 6.79086 10.017 9V15C10.017 17.2091 8.22614 19 6.017 19H4.017C3.46472 19 3.017 19.4477 3.017 20V21H1.017Z" />
+              </svg>
+            </div>
+            <p className="flex-grow font-display text-base leading-relaxed italic text-foreground/90">
+              "{msg.Mensagem}"
+            </p>
+            <div className="mt-6 border-t border-border pt-4">
+              <p className="text-[0.65rem] font-bold tracking-wide-caps text-foreground">
+                {msg.Nome}
+              </p>
+              <p className="mt-1 text-[0.6rem] text-muted-foreground">
+                {msg.Data}
+              </p>
+            </div>
+          </div>
+        </Reveal>
+      ))}
+    </div>
   );
 }
