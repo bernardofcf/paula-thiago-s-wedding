@@ -144,44 +144,44 @@ function Home() {
             <img
               src={casal1}
               alt="Paula e Thiago"
-              width={1200}
-              height={1500}
+              width={990}
+              height={1280}
               loading="lazy"
               decoding="async"
-              className="h-72 w-full object-cover md:h-96"
+              className="aspect-[5/7] w-full object-cover object-top"
             />
           </Reveal>
           <Reveal delay={120}>
             <img
               src={casal2}
               alt="Paula e Thiago"
-              width={1200}
-              height={900}
+              width={997}
+              height={1280}
               loading="lazy"
               decoding="async"
-              className="h-72 w-full object-cover md:h-96"
+              className="aspect-[5/7] w-full object-cover object-top"
             />
           </Reveal>
           <Reveal delay={240}>
             <img
               src={casal3}
               alt="Paula e Thiago"
-              width={1200}
-              height={1500}
+              width={939}
+              height={1280}
               loading="lazy"
               decoding="async"
-              className="h-72 w-full object-cover md:h-96"
+              className="aspect-[5/7] w-full object-cover object-top"
             />
           </Reveal>
           <Reveal delay={360}>
             <img
               src={casal4}
               alt="Paula e Thiago"
-              width={1200}
-              height={900}
+              width={950}
+              height={1280}
               loading="lazy"
               decoding="async"
-              className="h-72 w-full object-cover md:h-96"
+              className="aspect-[5/7] w-full object-cover object-top"
             />
           </Reveal>
         </div>
