@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { toast } from "sonner";
 
 import monogramaBranco from "@/assets/monograma-branco.png";
 import monogramaPreto from "@/assets/monograma-preto.png";
@@ -265,6 +266,25 @@ function Home() {
               </button>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* Mural de Mensagens */}
+      <section className="bg-secondary/30 px-6 py-20 md:py-28">
+        <div className="mx-auto max-w-xl">
+          <Reveal className="text-center">
+            <p className="text-[0.65rem] tracking-wide-caps text-muted-foreground">
+              Deixe seu carinho
+            </p>
+            <h2 className="mt-6 font-script text-5xl md:text-6xl">
+              Mensagens aos Noivos
+            </h2>
+            <div className="rule-line" />
+          </Reveal>
+
+          <Reveal delay={100} className="mt-10">
+            <MensagemForm />
+          </Reveal>
         </div>
       </section>
 
