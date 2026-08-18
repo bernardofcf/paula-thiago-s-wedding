@@ -2,15 +2,16 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { toast } from "sonner";
 
-import monogramaBranco from "@/assets/monograma-branco.png.asset.json";
-import monogramaPreto from "@/assets/monograma-preto.png.asset.json";
-import iconeIgreja from "@/assets/icons/igreja.png";
-import iconeMapa from "@/assets/icons/mapa.png";
-import casal1 from "@/assets/paulo_e_monize.jpeg.asset.json";
-import casal2 from "@/assets/paulo_e_monize_2_retirar_borda_branca.jpeg.asset.json";
-import casal3 from "@/assets/paulo_e_monize_3.jpeg.asset.json";
-import casal4 from "@/assets/paulo_e_monize_4.jpeg.asset.json";
-import casalIlustracao from "@/assets/paulo_e_monize_5.jpeg.asset.json";
+const monogramaBranco = "/img/monograma-branco.png";
+const monogramaPreto = "/img/monograma-preto.png";
+const iconeIgreja = "/icons/igreja.png";
+const iconeMapa = "/icons/mapa.png";
+const casal1 = "/img/casal-1.jpeg";
+const casal2 = "/img/casal-2.jpeg";
+const casal3 = "/img/casal-3.jpeg";
+const casal4 = "/img/casal-4.jpeg";
+const casalIlustracao = "/img/casal-ilustracao.jpeg";
+
 import { formatarBRL } from "@/lib/pix";
 import { Reveal } from "@/components/Reveal";
 import QRCode from "qrcode";
@@ -70,7 +71,7 @@ function Home() {
         <div className="relative">
           <Reveal>
             <img
-              src={monogramaBranco.url}
+              src={monogramaBranco}
               alt="Monograma Paula e Thiago"
               width={200}
               height={160}
@@ -141,7 +142,7 @@ function Home() {
         <div className="grid gap-4 sm:grid-cols-2">
           <Reveal>
             <img
-              src={casal1.url}
+              src={casal1}
               alt="Paula e Thiago"
               width={1200}
               height={1500}
@@ -152,7 +153,7 @@ function Home() {
           </Reveal>
           <Reveal delay={120}>
             <img
-              src={casal2.url}
+              src={casal2}
               alt="Paula e Thiago"
               width={1200}
               height={900}
@@ -163,7 +164,7 @@ function Home() {
           </Reveal>
           <Reveal delay={240}>
             <img
-              src={casal3.url}
+              src={casal3}
               alt="Paula e Thiago"
               width={1200}
               height={1500}
@@ -174,7 +175,7 @@ function Home() {
           </Reveal>
           <Reveal delay={360}>
             <img
-              src={casal4.url}
+              src={casal4}
               alt="Paula e Thiago"
               width={1200}
               height={900}
@@ -188,7 +189,7 @@ function Home() {
         <Reveal delay={100} className="mt-12 block">
           <div className="flex flex-col items-center">
             <img 
-              src={casalIlustracao.url} 
+              src={casalIlustracao} 
               alt="Ilustração do casal" 
               className="mx-auto mb-8 w-48 rounded-full border-4 border-secondary grayscale md:w-64"
             />
@@ -329,7 +330,7 @@ function Home() {
       <footer className="border-t border-border px-6 py-20 text-center">
         <Reveal>
           <img
-            src={monogramaPreto.url}
+            src={monogramaPreto}
             alt="Monograma Paula e Thiago"
             width={140}
             height={112}
