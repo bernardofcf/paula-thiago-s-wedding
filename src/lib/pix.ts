@@ -35,18 +35,24 @@ function sanitize(text: string, max: number) {
     .slice(0, max);
 }
 
-/** Monta o payload PIX estático com valor exato. */
+/** Monta o payload PIX estático. Se valor for 0, o pagador insere o valor no app. */
 export function gerarPixPayload(valor: number, identificador = "***") {
   const merchant =
     tlv("00", "BR.GOV.BCB.PIX") + tlv("01", PIX_CONFIG.chave);
 
-  const payload =
+  let payload =
     tlv("00", "01") +
     tlv("01", "11") +
     tlv("26", merchant) +
     tlv("52", "0000") +
-    tlv("53", "986") +
-    tlv("54", valor.toFixed(2)) +
+    tlv("53", "986");
+
+  // Se valor for maior que zero, adiciona ao payload. Se for 0, o campo 54 é omitido (valor variável)
+  if (valor > 0) {
+    payload += tlv("54", valor.toFixed(2));
+  }
+
+  payload +=
     tlv("58", "BR") +
     tlv("59", sanitize(PIX_CONFIG.nome, 25)) +
     tlv("60", sanitize(PIX_CONFIG.cidade, 15)) +
