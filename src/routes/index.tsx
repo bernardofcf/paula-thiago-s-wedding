@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { toast } from "sonner";
 
-import monogramaBranco from "@/assets/monograma-branco.png";
-import monogramaPreto from "@/assets/monograma-preto.png";
+import monogramaBranco from "@/assets/monograma-branco.png.asset.json";
+import monogramaPreto from "@/assets/monograma-preto.png.asset.json";
 import iconeIgreja from "@/assets/icons/igreja.png";
 import iconeMapa from "@/assets/icons/mapa.png";
 import casal1 from "@/assets/paulo_e_monize.jpeg.asset.json";
