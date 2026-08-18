@@ -3,8 +3,8 @@
  * Altere os dados abaixo pelos dados reais dos noivos.
  */
 export const PIX_CONFIG = {
-  /** Chave PIX (CPF, e-mail, telefone ou aleatória) */
-  chave: "91981174524",
+  /** Chave PIX: Para telefone celular no padrão BR Code, deve incluir +55 */
+  chave: "+5591981174524",
   /** Nome do recebedor (máx. 25 caracteres) */
   nome: "PAULA M M DO ROSARIO",
   /** Cidade do recebedor (máx. 15 caracteres) */
@@ -39,10 +39,16 @@ function sanitize(text: string, max: number) {
     .slice(0, max);
 }
 
+function sanitizeChave(chave: string) {
+  // Para chaves de telefone, mantemos o + e os números. 
+  // O padrão BCB para telefone celular é +55DDNNNNNNNNN
+  return chave.replace(/\s+/g, "");
+}
+
 /** Monta o payload PIX estático. Se valor for 0, o pagador insere o valor no app. */
 export function gerarPixPayload(valor: number, identificador = "***") {
   const merchantAccount =
-    tlv("00", "BR.GOV.BCB.PIX") + tlv("01", PIX_CONFIG.chave);
+    tlv("00", "BR.GOV.BCB.PIX") + tlv("01", sanitizeChave(PIX_CONFIG.chave));
 
   let payload =
     tlv("00", "01") + // Payload Format Indicator
