@@ -308,13 +308,81 @@ function Home() {
         </Reveal>
       </footer>
 
-      <PresenteDialog
-        presente={selecionado}
-        onClose={() => setSelecionado(null)}
-      />
+      <footer className="border-t border-border px-6 py-20 text-center">
+        <Reveal>
+          <img
+            src={monogramaPreto}
+            alt="Monograma Paula e Thiago"
+            width={140}
+            height={112}
+            loading="lazy"
+            className="mx-auto w-20"
+          />
+          <p className="mt-8 font-script text-3xl">Com amor, Paula e Thiago</p>
+          <p className="mt-6 text-[0.6rem] tracking-wide-caps text-muted-foreground">
+            Belém · 24.10.2026
+          </p>
+        </Reveal>
+      </footer>
     </main>
   );
 }
+
+function PixGenerico() {
+  const [qr, setQr] = useState<string | null>(null);
+  const [copiado, setCopiado] = useState(false);
+  const payload = gerarPixPayload(0, "PRESENTE");
+
+  useEffect(() => {
+    QRCode.toDataURL(payload, {
+      margin: 1,
+      width: 640,
+      color: { dark: "#111111", light: "#ffffff" },
+    }).then(setQr);
+  }, [payload]);
+
+  const copiar = async () => {
+    try {
+      await navigator.clipboard.writeText(payload);
+      toast.success("Código PIX copiado! ❤️");
+    } catch {
+      toast.error("Não foi possível copiar o código.");
+    }
+    setCopiado(true);
+    setTimeout(() => setCopiado(false), 2500);
+  };
+
+  return (
+    <div className="w-full max-w-sm border border-border bg-card p-8 text-center shadow-sm">
+      <div className="mx-auto flex h-64 w-64 items-center justify-center border border-border bg-secondary p-4">
+        {qr ? (
+          <img
+            src={qr}
+            alt="QR Code PIX"
+            className="h-full w-full object-contain"
+          />
+        ) : (
+          <span className="text-xs tracking-wide-caps text-muted-foreground">
+            Gerando...
+          </span>
+        )}
+      </div>
+
+      <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
+        Escaneie o QR Code acima ou copie o código PIX abaixo para presentear
+        com o valor que desejar.
+      </p>
+
+      <button
+        onClick={copiar}
+        className="mt-6 w-full bg-foreground py-4 text-[0.65rem] tracking-wide-caps text-background transition-opacity hover:opacity-90"
+      >
+        {copiado ? "Código copiado" : "Copiar código PIX"}
+      </button>
+    </div>
+  );
+}
+
 
 function MensagemForm() {
   const [nome, setNome] = useState("");
