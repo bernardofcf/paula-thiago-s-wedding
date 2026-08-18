@@ -4,7 +4,7 @@
  */
 export const PIX_CONFIG = {
   /** Chave PIX (CPF, e-mail, telefone ou aleatória) */
-  chave: "paulaethiago@email.com",
+  chave: "91981174524",
   /** Nome do recebedor (máx. 25 caracteres) */
   nome: "PAULA M M DO ROSARIO",
   /** Cidade do recebedor (máx. 15 caracteres) */
