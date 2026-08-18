@@ -59,7 +59,9 @@ export function gerarPixPayload(valor: number, identificador = "***") {
     tlv("62", tlv("05", sanitize(identificador, 25) || "***")) +
     "6304";
 
-  return payload + crc16(payload);
+  const crc = crc16(payload);
+  console.log("PIX Payload:", payload + crc);
+  return payload + crc;
 }
 
 export function formatarBRL(valor: number) {
