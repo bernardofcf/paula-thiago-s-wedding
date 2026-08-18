@@ -329,7 +329,7 @@ function Home() {
       <footer className="border-t border-border px-6 py-20 text-center">
         <Reveal>
           <img
-            src={monogramaPreto}
+            src={monogramaPreto.url}
             alt="Monograma Paula e Thiago"
             width={140}
             height={112}
