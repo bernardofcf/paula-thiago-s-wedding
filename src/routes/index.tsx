@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { toast } from "sonner";
 
-import monogramaBranco from "@/assets/monograma-branco.png";
-import monogramaPreto from "@/assets/monograma-preto.png";
+import monogramaBranco from "@/assets/monograma-branco.png.asset.json";
+import monogramaPreto from "@/assets/monograma-preto.png.asset.json";
 import iconeIgreja from "@/assets/icons/igreja.png";
 import iconeMapa from "@/assets/icons/mapa.png";
 import casal1 from "@/assets/paulo_e_monize.jpeg.asset.json";
@@ -70,7 +70,7 @@ function Home() {
         <div className="relative">
           <Reveal>
             <img
-              src={monogramaBranco}
+              src={monogramaBranco.url}
               alt="Monograma Paula e Thiago"
               width={200}
               height={160}
@@ -329,7 +329,7 @@ function Home() {
       <footer className="border-t border-border px-6 py-20 text-center">
         <Reveal>
           <img
-            src={monogramaPreto}
+            src={monogramaPreto.url}
             alt="Monograma Paula e Thiago"
             width={140}
             height={112}
