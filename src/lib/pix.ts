@@ -41,31 +41,28 @@ function sanitize(text: string, max: number) {
 
 /** Monta o payload PIX estático. Se valor for 0, o pagador insere o valor no app. */
 export function gerarPixPayload(valor: number, identificador = "***") {
-  const merchant =
+  const merchantAccount =
     tlv("00", "BR.GOV.BCB.PIX") + tlv("01", PIX_CONFIG.chave);
 
   let payload =
-    tlv("00", "01") +
-    tlv("01", "11") +
-    tlv("26", merchant) +
-    tlv("52", "0000") +
-    tlv("53", "986");
+    tlv("00", "01") + // Payload Format Indicator
+    tlv("01", "11") + // Point of Initiation Method (11 = Estático, 12 = Dinâmico)
+    tlv("26", merchantAccount) +
+    tlv("52", "0000") + // Merchant Category Code
+    tlv("53", "986"); // Transaction Currency (986 = BRL)
 
-  // Se valor for maior que zero, adiciona ao payload. Se for 0, o campo 54 é omitido (valor variável)
   if (valor > 0) {
     payload += tlv("54", valor.toFixed(2));
   }
 
   payload +=
-    tlv("58", "BR") +
-    tlv("59", sanitize(PIX_CONFIG.nome, 25)) +
-    tlv("60", sanitize(PIX_CONFIG.cidade, 15)) +
-    tlv("62", tlv("05", sanitize(identificador, 25) || "***")) +
-    "6304";
+    tlv("58", "BR") + // Country Code
+    tlv("59", sanitize(PIX_CONFIG.nome, 25)) + // Merchant Name
+    tlv("60", sanitize(PIX_CONFIG.cidade, 15)) + // Merchant City
+    tlv("62", tlv("05", sanitize(identificador, 25) || "***")) + // Additional Data Field Template
+    "6304"; // CRC16
 
-  const crc = crc16(payload);
-  console.log("PIX Payload:", payload + crc);
-  return payload + crc;
+  return payload + crc16(payload);
 }
 
 export function formatarBRL(valor: number) {
