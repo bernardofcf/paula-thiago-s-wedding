@@ -418,7 +418,7 @@ function MensagemForm() {
 
     setCarregando(true);
     try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycbyqmigaZoiLEUex0vhSTOCUadcYE6AuTYhKVuLHgZc5is4tlO4SpfQscww41JuKppetRQ/exec", {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbwnth7NN2S1SPOYDkdrLYZFhLPvXWnZ-tkUf_ymuGEwlsL5uUv1S52GUzKkypGisSJAPg/exec", {
         method: "POST",
         mode: "no-cors",
         redirect: "follow",
@@ -503,7 +503,7 @@ function MuralMensagens() {
   const [carregando, setCarregando] = useState(true);
 
   useEffect(() => {
-    fetch("https://script.google.com/macros/s/AKfycbyqmigaZoiLEUex0vhSTOCUadcYE6AuTYhKVuLHgZc5is4tlO4SpfQscww41JuKppetRQ/exec")
+    fetch("https://script.google.com/macros/s/AKfycbwnth7NN2S1SPOYDkdrLYZFhLPvXWnZ-tkUf_ymuGEwlsL5uUv1S52GUzKkypGisSJAPg/exec")
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
