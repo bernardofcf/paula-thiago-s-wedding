@@ -6,8 +6,11 @@ import monogramaBranco from "@/assets/monograma-branco.png";
 import monogramaPreto from "@/assets/monograma-preto.png";
 import iconeIgreja from "@/assets/icons/igreja.png";
 import iconeMapa from "@/assets/icons/mapa.png";
-import casal1 from "@/assets/casal-1.jpg";
-import casal2 from "@/assets/casal-2.jpg";
+import casal1 from "@/assets/paulo_e_monize.jpeg.asset.json";
+import casal2 from "@/assets/paulo_e_monize_2.jpeg.asset.json";
+import casal3 from "@/assets/paulo_e_monize_3.jpeg.asset.json";
+import casal4 from "@/assets/paulo_e_monize_4.jpeg.asset.json";
+import casalIlustracao from "@/assets/paulo_e_monize_5.jpeg.asset.json";
 import { formatarBRL } from "@/lib/pix";
 import { Reveal } from "@/components/Reveal";
 import QRCode from "qrcode";
@@ -138,29 +141,59 @@ function Home() {
         <div className="grid gap-4 sm:grid-cols-2">
           <Reveal>
             <img
-              src={casal1}
-              alt="Paula e Thiago abraçados"
+              src={casal1.url}
+              alt="Paula e Thiago"
               width={1200}
               height={1500}
               loading="lazy"
               decoding="async"
-              className="h-64 w-full object-cover md:h-80"
+              className="h-72 w-full object-cover md:h-96"
             />
           </Reveal>
           <Reveal delay={120}>
             <img
-              src={casal2}
-              alt="Paula e Thiago de mãos dadas"
+              src={casal2.url}
+              alt="Paula e Thiago"
               width={1200}
               height={900}
               loading="lazy"
               decoding="async"
-              className="h-64 w-full object-cover md:h-80"
+              className="h-72 w-full object-cover md:h-96"
+            />
+          </Reveal>
+          <Reveal delay={240}>
+            <img
+              src={casal3.url}
+              alt="Paula e Thiago"
+              width={1200}
+              height={1500}
+              loading="lazy"
+              decoding="async"
+              className="h-72 w-full object-cover md:h-96"
+            />
+          </Reveal>
+          <Reveal delay={360}>
+            <img
+              src={casal4.url}
+              alt="Paula e Thiago"
+              width={1200}
+              height={900}
+              loading="lazy"
+              decoding="async"
+              className="h-72 w-full object-cover md:h-96"
             />
           </Reveal>
         </div>
-        <Reveal delay={100} className="mt-4 block">
-          <div className="bg-secondary px-8 py-12 text-center">
+        
+        <Reveal delay={100} className="mt-12 block">
+          <div className="flex flex-col items-center">
+            <img 
+              src={casalIlustracao.url} 
+              alt="Ilustração do casal" 
+              className="mx-auto mb-8 w-48 rounded-full border-4 border-secondary grayscale md:w-64"
+            />
+          </div>
+          <div className="w-full bg-secondary px-8 py-12 text-center">
             <p className="text-[0.6rem] tracking-wide-caps text-muted-foreground">
               NOSSA HISTÓRIA
             </p>
