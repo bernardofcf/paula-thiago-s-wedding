@@ -71,7 +71,7 @@ function Home() {
         <div className="relative">
           <Reveal>
             <img
-              src={monogramaBranco.url}
+              src={monogramaBranco}
               alt="Monograma Paula e Thiago"
               width={200}
               height={160}
@@ -142,7 +142,7 @@ function Home() {
         <div className="grid gap-4 sm:grid-cols-2">
           <Reveal>
             <img
-              src={casal1.url}
+              src={casal1}
               alt="Paula e Thiago"
               width={1200}
               height={1500}
@@ -153,7 +153,7 @@ function Home() {
           </Reveal>
           <Reveal delay={120}>
             <img
-              src={casal2.url}
+              src={casal2}
               alt="Paula e Thiago"
               width={1200}
               height={900}
@@ -164,7 +164,7 @@ function Home() {
           </Reveal>
           <Reveal delay={240}>
             <img
-              src={casal3.url}
+              src={casal3}
               alt="Paula e Thiago"
               width={1200}
               height={1500}
@@ -175,7 +175,7 @@ function Home() {
           </Reveal>
           <Reveal delay={360}>
             <img
-              src={casal4.url}
+              src={casal4}
               alt="Paula e Thiago"
               width={1200}
               height={900}
@@ -189,7 +189,7 @@ function Home() {
         <Reveal delay={100} className="mt-12 block">
           <div className="flex flex-col items-center">
             <img 
-              src={casalIlustracao.url} 
+              src={casalIlustracao} 
               alt="Ilustração do casal" 
               className="mx-auto mb-8 w-48 rounded-full border-4 border-secondary grayscale md:w-64"
             />
@@ -330,7 +330,7 @@ function Home() {
       <footer className="border-t border-border px-6 py-20 text-center">
         <Reveal>
           <img
-            src={monogramaPreto.url}
+            src={monogramaPreto}
             alt="Monograma Paula e Thiago"
             width={140}
             height={112}
