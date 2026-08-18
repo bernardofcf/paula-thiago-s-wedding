@@ -8,9 +8,7 @@ import iconeIgreja from "@/assets/icons/igreja.png";
 import iconeMapa from "@/assets/icons/mapa.png";
 import casal1 from "@/assets/casal-1.jpg";
 import casal2 from "@/assets/casal-2.jpg";
-import { presentes, type Presente } from "@/data/presentes";
 import { formatarBRL } from "@/lib/pix";
-import { PresenteDialog } from "@/components/PresenteDialog";
 import { Reveal } from "@/components/Reveal";
 import QRCode from "qrcode";
 import { useEffect } from "react";
@@ -60,7 +58,7 @@ function Ornamento({
 }
 
 function Home() {
-  const [selecionado, setSelecionado] = useState<Presente | null>(null);
+  
 
   return (
     <main className="bg-background">
