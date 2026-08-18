@@ -313,3 +313,101 @@ function Home() {
     </main>
   );
 }
+
+function MensagemForm() {
+  const [nome, setNome] = useState("");
+  const [mensagem, setMensagem] = useState("");
+  const [carregando, setCarregando] = useState(false);
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!nome || !mensagem) {
+      toast.error("Por favor, preencha todos os campos.");
+      return;
+    }
+
+    setCarregando(true);
+    try {
+      const response = await fetch("https://sheetdb.io/api/v1/qowq2p70t611u", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data: [
+            {
+              Nome: nome,
+              Mensagem: mensagem,
+              Data: new Date().toLocaleString("pt-BR"),
+            },
+          ],
+        }),
+      });
+
+      if (response.ok) {
+        toast.success("Mensagem enviada com sucesso! ❤️");
+        setNome("");
+        setMensagem("");
+      } else {
+        throw new Error("Erro ao enviar");
+      }
+    } catch (error) {
+      toast.error("Não foi possível enviar sua mensagem. Tente novamente.");
+    } finally {
+      setCarregando(false);
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div>
+        <label
+          htmlFor="nome"
+          className="block text-[0.65rem] tracking-wide-caps text-muted-foreground"
+        >
+          Seu Nome
+        </label>
+        <input
+          id="nome"
+          type="text"
+          value={nome}
+          onChange={(e) => setNome(e.target.value)}
+          placeholder="Como quer ser identificado?"
+          className="mt-2 w-full border-b border-border bg-transparent py-3 text-sm focus:border-foreground focus:outline-none"
+          disabled={carregando}
+        />
+      </div>
+      <div>
+        <label
+          htmlFor="mensagem"
+          className="block text-[0.65rem] tracking-wide-caps text-muted-foreground"
+        >
+          Sua Mensagem
+        </label>
+        <textarea
+          id="mensagem"
+          value={mensagem}
+          onChange={(e) => setMensagem(e.target.value)}
+          placeholder="Escreva algo bonito para os noivos..."
+          rows={4}
+          className="mt-2 w-full border-b border-border bg-transparent py-3 text-sm focus:border-foreground focus:outline-none"
+          disabled={carregando}
+        />
+      </div>
+      <button
+        type="submit"
+        disabled={carregando}
+        className="group relative w-full overflow-hidden bg-foreground py-4 text-[0.65rem] tracking-wide-caps text-background transition-all hover:opacity-90 disabled:opacity-50"
+      >
+        <span className={carregando ? "opacity-0" : "opacity-100"}>
+          Enviar Mensagem
+        </span>
+        {carregando && (
+          <span className="absolute inset-0 flex items-center justify-center">
+            Carregando...
+          </span>
+        )}
+      </button>
+    </form>
+  );
+}
