@@ -12,6 +12,9 @@ import { presentes, type Presente } from "@/data/presentes";
 import { formatarBRL } from "@/lib/pix";
 import { PresenteDialog } from "@/components/PresenteDialog";
 import { Reveal } from "@/components/Reveal";
+import QRCode from "qrcode";
+import { useEffect } from "react";
+import { gerarPixPayload } from "@/lib/pix";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -244,59 +247,28 @@ function Home() {
         </div>
       </section>
 
-      {/* Lista de presentes */}
+      {/* Sobre presentes */}
       <section
         id="presentes"
         className="relative mx-auto max-w-6xl overflow-hidden px-6 py-20 md:py-28"
       >
         <Reveal className="relative block text-center">
           <p className="text-[0.65rem] tracking-wide-caps text-muted-foreground">
-            Lista de presentes
+            Sobre presentes
           </p>
           <h2 className="mt-6 font-script text-5xl md:text-6xl">
-            Presentear é abençoar
+            Sobre presentes
           </h2>
           <div className="rule-line" />
           <p className="mx-auto max-w-xl text-sm leading-loose text-muted-foreground">
-            Sua presença já é o maior presente. Mas, se quiser fazer parte do
-            nosso começo, escolha um item abaixo: um QR Code PIX com o valor
-            exato será gerado na hora.
+            Se desejarem nos presentear, disponibilizamos uma opção prática
+            através do pix ❤️
           </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 md:mt-16 lg:grid-cols-3">
-          {presentes.map((p, i) => (
-            <Reveal key={p.id} delay={(i % 3) * 90}>
-              <button
-                onClick={() => setSelecionado(p)}
-                className="group w-full text-left"
-              >
-                <div className="overflow-hidden bg-secondary">
-                  <img
-                    src={p.imagem}
-                    alt={p.nome}
-                    width={800}
-                    height={800}
-                    loading="lazy"
-                    className="aspect-square w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-                <h3 className="mt-5 font-display text-xl">{p.nome}</h3>
-                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-                  {p.descricao}
-                </p>
-                <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
-                  <span className="font-display text-lg">
-                    {formatarBRL(p.valor)}
-                  </span>
-                  <span className="text-[0.6rem] tracking-wide-caps text-muted-foreground transition-colors group-hover:text-foreground">
-                    Presentear
-                  </span>
-                </div>
-              </button>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal delay={200} className="mt-12 flex flex-col items-center">
+          <PixGenerico />
+        </Reveal>
       </section>
 
       {/* Mural de Mensagens */}
