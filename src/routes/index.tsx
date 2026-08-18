@@ -76,7 +76,7 @@ function Home() {
           </Reveal>
           <Reveal delay={120}>
             <p className="mt-8 text-[0.6rem] tracking-wide-caps text-background/60">
-              Vamos nos casar
+              Casamento
             </p>
           </Reveal>
           <Reveal delay={220}>
@@ -104,16 +104,29 @@ function Home() {
           </Reveal>
           <Reveal delay={100}>
             <p className="font-display text-2xl leading-relaxed italic md:text-3xl">
-              “Há encontros que parecem combinados muito antes da gente nascer.
-              O nosso foi assim.”
+              “PARA QUE TODOS VEJAM, SAIBAM, CONSIDEREM E JUNTAMENTE ENTENDAM QUE A
+              MÃO DO SENHOR FEZ ISSO.
+              <span className="mt-2 block text-sm font-sans not-italic tracking-normal opacity-70">
+                Isaías 41:20
+              </span>
+              ”
             </p>
           </Reveal>
           <Reveal delay={200}>
             <p className="mt-8 text-sm leading-loose text-muted-foreground">
-              Depois de tantos caminhos, escolhemos um só — e ele passa por você.
-              Será uma alegria imensa ter quem amamos por perto no dia em que
-              dissermos sim diante de Deus. Venha celebrar, rir, chorar um pouco e
-              dançar até o fim da noite conosco.
+              O que vivemos até aqui não foi acaso. Foi cuidado, encontro e
+              propósito. Entre tantos caminhos possíveis, Deus conduziu os nossos
+              passos até que nossas histórias se encontrassem.
+              <br />
+              <br />
+              Agora, diante d’Ele e cercados por aqueles que amamos, vamos celebrar
+              o início de um novo capítulo: a nossa vida a dois.
+              <br />
+              <br />
+              Este espaço foi criado para compartilhar um pouquinho desse momento
+              tão especial e, principalmente, para que você faça parte dele.
+              Porque algumas histórias são ainda mais bonitas quando celebradas ao
+              lado de quem amamos.
             </p>
           </Reveal>
         </div>
@@ -148,12 +161,29 @@ function Home() {
         <Reveal delay={100} className="mt-4 block">
           <div className="bg-secondary px-8 py-12 text-center">
             <p className="text-[0.6rem] tracking-wide-caps text-muted-foreground">
-              O nosso tempo
+              NOSSA HISTÓRIA
             </p>
             <div className="rule-line" />
-            <p className="mx-auto max-w-md font-display text-xl leading-relaxed italic">
-              Uma história que veio devagar, virou casa — e agora vira promessa.
-            </p>
+            <div className="mx-auto max-w-lg space-y-4 text-sm leading-loose text-muted-foreground">
+              <p className="font-display text-xl italic text-foreground">
+                Uma história que se iniciou na época colegial.
+              </p>
+              <p>
+                O que começou com um pirulito de chocolate e uma mensagem no
+                Facebook, aos poucos, ganhou novos capítulos, cresceu com o tempo
+                e se transformou em uma história que hoje escolhemos viver para
+                sempre.
+              </p>
+              <p>
+                E aquilo que um dia começou de um jeito tão simples nos trouxe até
+                aqui: ao nosso sim, à nossa casa e à vida que estamos construindo
+                juntos.
+              </p>
+              <p>
+                Hoje, estamos prontos para escrever o capítulo mais bonito da
+                nossa história: o nosso matrimônio.
+              </p>
+            </div>
           </div>
         </Reveal>
       </section>
@@ -177,7 +207,7 @@ function Home() {
               Sábado, 24 de outubro de 2026
             </p>
             <h2 className="mt-6 font-script text-5xl text-background md:text-6xl">
-              Onde e quando
+              Onde e quando?
             </h2>
           </Reveal>
 
@@ -195,7 +225,7 @@ function Home() {
             </Reveal>
             <Reveal delay={220}>
               <p className="text-[0.65rem] tracking-wide-caps text-background/60">
-                Recepção · logo após
+                Recepção · 22h
               </p>
               <h3 className="mt-4 font-display text-2xl text-background">
                 Usina 265
