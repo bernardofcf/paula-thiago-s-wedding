@@ -307,26 +307,10 @@ function Home() {
           </p>
         </Reveal>
       </footer>
-
-      <footer className="border-t border-border px-6 py-20 text-center">
-        <Reveal>
-          <img
-            src={monogramaPreto}
-            alt="Monograma Paula e Thiago"
-            width={140}
-            height={112}
-            loading="lazy"
-            className="mx-auto w-20"
-          />
-          <p className="mt-8 font-script text-3xl">Com amor, Paula e Thiago</p>
-          <p className="mt-6 text-[0.6rem] tracking-wide-caps text-muted-foreground">
-            Belém · 24.10.2026
-          </p>
-        </Reveal>
-      </footer>
     </main>
   );
 }
+
 
 function PixGenerico() {
   const [qr, setQr] = useState<string | null>(null);
