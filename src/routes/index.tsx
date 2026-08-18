@@ -148,7 +148,7 @@ function Home() {
               height={1280}
               loading="lazy"
               decoding="async"
-              className="aspect-[3/4] w-full object-cover object-top"
+              className="aspect-[5/7] w-full object-cover object-top"
             />
           </Reveal>
           <Reveal delay={120}>
@@ -159,7 +159,7 @@ function Home() {
               height={1280}
               loading="lazy"
               decoding="async"
-              className="aspect-[3/4] w-full object-cover object-top"
+              className="aspect-[5/7] w-full object-cover object-top"
             />
           </Reveal>
           <Reveal delay={240}>
@@ -170,7 +170,7 @@ function Home() {
               height={1280}
               loading="lazy"
               decoding="async"
-              className="aspect-[3/4] w-full object-cover object-top"
+              className="aspect-[5/7] w-full object-cover object-top"
             />
           </Reveal>
           <Reveal delay={360}>
@@ -181,7 +181,7 @@ function Home() {
               height={1280}
               loading="lazy"
               decoding="async"
-              className="aspect-[3/4] w-full object-cover object-top"
+              className="aspect-[5/7] w-full object-cover object-top"
             />
           </Reveal>
         </div>
