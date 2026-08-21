@@ -10,7 +10,7 @@ const casal1 = "/img/casal-1.jpeg";
 const casal2 = "/img/casal-2.jpeg";
 const casal3 = "/img/casal-3.jpeg";
 const casal4 = "/img/casal-4.jpeg";
-const casalIlustracao = "/img/casal-ilustracao.jpeg";
+
 
 import { formatarBRL } from "@/lib/pix";
 import { Reveal } from "@/components/Reveal";
@@ -187,13 +187,6 @@ function Home() {
         </div>
         
         <Reveal delay={100} className="mt-12 block">
-          <div className="flex flex-col items-center">
-            <img 
-              src={casalIlustracao} 
-              alt="Ilustração do casal" 
-              className="mx-auto mb-8 w-48 rounded-full border-4 border-secondary grayscale md:w-64"
-            />
-          </div>
           <div className="w-full bg-secondary px-8 py-12 text-center">
             <p className="text-[0.6rem] tracking-wide-caps text-muted-foreground">
               NOSSA HISTÓRIA
