@@ -10,7 +10,7 @@ const casal1 = "/img/casal-1.jpeg";
 const casal2 = "/img/casal-2.jpeg";
 const casal3 = "/img/casal-3.jpeg";
 const casal4 = "/img/casal-4.jpeg";
-const casalIlustracao = "/img/casal-ilustracao.jpeg";
+
 
 import { formatarBRL } from "@/lib/pix";
 import { Reveal } from "@/components/Reveal";
