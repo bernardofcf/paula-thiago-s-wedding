@@ -242,7 +242,7 @@ function Home() {
           <div className="mt-12 grid gap-10 md:mt-16 md:grid-cols-2 md:gap-14">
             <Reveal delay={120}>
               <p className="text-[0.65rem] tracking-wide-caps text-background/60">
-                Cerimônia · 20h
+                Cerimônia · 19h30
               </p>
               <h3 className="mt-4 font-display text-2xl text-background">
                 Catedral Metropolitana de Belém
