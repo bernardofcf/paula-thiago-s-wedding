@@ -31,7 +31,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Cerimônia às 20h na Igreja da Sé e recepção na Usina 265. Lista de presentes com PIX.",
+          "Cerimônia às 19h30 na Igreja da Sé e recepção na Usina 265. Lista de presentes com PIX.",
       },
     ],
   }),
