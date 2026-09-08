@@ -40,8 +40,7 @@ function sanitize(text: string, max: number) {
 }
 
 function sanitizeChave(chave: string) {
-  // Para chaves de telefone, mantemos o + e os números. 
-  // O padrão BCB para telefone celular é +55DDNNNNNNNNN
+  // Chave aleatória: remove espaços e mantém os caracteres válidos.
   return chave.replace(/\s+/g, "");
 }
 
