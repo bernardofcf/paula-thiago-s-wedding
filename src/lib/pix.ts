@@ -3,8 +3,8 @@
  * Altere os dados abaixo pelos dados reais dos noivos.
  */
 export const PIX_CONFIG = {
-  /** Chave PIX: Para telefone celular no padrão BR Code, deve incluir +55 */
-  chave: "+5591981174524",
+  /** Chave PIX aleatória */
+  chave: "a44476b8-47f2-46a6-a01d-732e31d03e9a",
   /** Nome do recebedor (máx. 25 caracteres) */
   nome: "PAULA M M DO ROSARIO",
   /** Cidade do recebedor (máx. 15 caracteres) */
