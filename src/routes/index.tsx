@@ -144,8 +144,8 @@ function Home() {
             <img
               src={casal1}
               alt="Paula e Thiago"
-              width={990}
-              height={1280}
+              width={1200}
+              height={1552}
               loading="lazy"
               decoding="async"
               className="aspect-[5/7] w-full object-cover object-top"
@@ -155,8 +155,8 @@ function Home() {
             <img
               src={casal2}
               alt="Paula e Thiago"
-              width={997}
-              height={1280}
+              width={1200}
+              height={1540}
               loading="lazy"
               decoding="async"
               className="aspect-[5/7] w-full object-cover object-top"
